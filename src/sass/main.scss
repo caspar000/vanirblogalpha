@@ -1,0 +1,153 @@
+@import '0-helper/0-helper';
+@import url('https://fonts.googleapis.com/css2?family=Oranienbaum&family=Philosopher&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Philosopher', sans-serif;
+  background: #EDEFF1;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+
+  @include mQ(1000px) {
+    grid-template-columns: 50px 1fr;
+    .sidebar {
+      width: 50px;
+      img, span, a {
+        display: none;
+      }
+    }
+  }
+}
+
+.mainbody {
+  padding-top: 40px;
+  p {
+    font-size: 24px;
+  }
+  h1 {
+    font-size: 48px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+  }
+  @include mQ(600px) {
+    p {
+      font-size: 18px;
+    }
+    h1 {
+      font-size: 32px;
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+
+  font-family: 'Oranienbaum', serif;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  img {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+  }
+  span {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+  .navlinks{
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: start;
+    img {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      border-radius: 0;
+      margin-right: 10px;
+    }
+    a {
+      padding: 20px;
+      padding-left: 25%;
+      text-decoration: none;
+      font-size: 24px;
+      color: black;
+      &:hover {
+        background: rgb(240, 240, 240);
+      }
+    }
+  }
+
+}
+
+.container {
+  @include mQ(600px) {
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+  @include mQ(1400px, 600px) {
+    padding-left: 60px;
+    padding-right: 40px;
+  }
+  @include mQ(0, 1400px) {
+    max-width: 1140px;
+    margin-right:  auto;
+    margin-left:   auto;
+  }
+}
+
+.card {
+  display: inline-block;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);
+  h1 {
+    font-size: 22px;
+    padding: 12px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  @include mQ(1400px) {
+    h1 {
+      font-size: 18px;
+    }
+  }
+}
+
+.cardtitle {
+  background: white;
+  height: 80px;
+}
+
+.placeholder {
+  height: 500px;
+  // padding: 150px 250px;
+  // background: grey;
+}
+
+.latest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  @include mQ(800px) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,25 +1,43 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `VanirBlog`,
+    description: `Blog created by the immortal bard Vanir.`,
+    author: `@vanir`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
+    `gatsby-plugin-catch-links`,
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1140,
+              wrapperStyle: `box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);img{border-radius: 15px;}`,
+            },
+          },
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Vanir Blog`,
+        short_name: `vanir`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
